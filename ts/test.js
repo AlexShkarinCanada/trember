@@ -50,54 +50,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 console.log('Run..');
-//   let url :string = 'https://raw.githubusercontent.com/dmfilipenko/timezones.json/master/timezones.json';
-//  var load = async (url :string) => {
-//    let res =  await fetch(url);
-//    const result = res.json();
-//   //  console.log('load..', result);
-//    return result;
-//  }
-// async function Get () {
-//   console.log('Get..');
-// return (
-//   await fetch('https://raw.githubusercontent.com/dmfilipenko/timezones.json/master/timezones.json')
-//   .then((response) => {
-//     return response.json();
-//   })
-//   .then((data) => {
-//     console.log(data);
-//   })
-// )
-// //   await fetch(
-// //   "https://raw.githubusercontent.com/dmfilipenko/timezones.json/master/timezones.json"
-// // )
-// }
-// Get();
-// console.log('load..', response);
-// var load = async (url :string) => {
-//   let res =  await fetch(url)
-//   // const result = res.json();
-//   .then(response => response.json())
-//   .then(data => data)  
-//   .catch(error => {
-//     console.log('err');
-//   })
-//  //  console.log('load..', result);
-//   return res;
-// }
-//  api(url);
-// load (url);
 /**
  * Делает "веер" запросов и возвращает все результаты в виде массива, сохраняя порядок URL-ов
  * @param additional дополнительные URL-ы для запроса
  */
 function list(additional) {
-    // list.map((url) => load(url));
     return (['https://raw.githubusercontent.com/dmfilipenko/timezones.json/master/timezones.json',
         'https://raw.githubusercontent.com/benoitvallon/100-best-books/master/books.json',
         additional
     ]);
-    //  return list.map((url) => load(url));
 }
 var url = list();
 console.log('url..', url);
