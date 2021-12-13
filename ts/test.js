@@ -9,8 +9,9 @@
  * 2. Сделать его красивым (если есть время и желание, понятие красоты -- личное)
  * 3. Сделать его быстрым (опять таки если есть время и желание и ещё есть, что ускорять)
  */
+//  export {};
+// import fetch from "node-fetch";
 "use strong";
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -47,19 +48,60 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-exports.__esModule = true;
+var _this = this;
 console.log('Run..');
-var url = '';
-var load = function (url) { return __awaiter(void 0, void 0, void 0, function () {
+//   let url :string = 'https://raw.githubusercontent.com/dmfilipenko/timezones.json/master/timezones.json';
+//  var load = async (url :string) => {
+//    let res =  await fetch(url);
+//    const result = res.json();
+//   //  console.log('load..', result);
+//    return result;
+//  }
+// async function Get () {
+//   console.log('Get..');
+// return (
+//   await fetch('https://raw.githubusercontent.com/dmfilipenko/timezones.json/master/timezones.json')
+//   .then((response) => {
+//     return response.json();
+//   })
+//   .then((data) => {
+//     console.log(data);
+//   })
+// )
+// //   await fetch(
+// //   "https://raw.githubusercontent.com/dmfilipenko/timezones.json/master/timezones.json"
+// // )
+// }
+// Get();
+// console.log('load..', response);
+// var load = async (url :string) => {
+//   let res =  await fetch(url)
+//   // const result = res.json();
+//   .then(response => response.json())
+//   .then(data => data)  
+//   .catch(error => {
+//     console.log('err');
+//   })
+//  //  console.log('load..', result);
+//   return res;
+// }
+//  api(url);
+// load (url);
+/**
+ * Делает "веер" запросов и возвращает все результаты в виде массива, сохраняя порядок URL-ов
+ * @param additional дополнительные URL-ы для запроса
+ */
+function list(additional) {
+    // list.map((url) => load(url));
+    return (['https://raw.githubusercontent.com/dmfilipenko/timezones.json/master/timezones.json',
+        'https://raw.githubusercontent.com/benoitvallon/100-best-books/master/books.json',
+        additional
+    ]);
+    //  return list.map((url) => load(url));
+}
+var url = list();
+console.log('url..', url);
+var load = function (url) { return __awaiter(_this, void 0, void 0, function () {
     var res, result;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -67,18 +109,8 @@ var load = function (url) { return __awaiter(void 0, void 0, void 0, function ()
             case 1:
                 res = _a.sent();
                 result = res.json();
+                //console.log('load..', result);
                 return [2 /*return*/, result];
         }
     });
 }); };
-/**
- * Делает "веер" запросов и возвращает все результаты в виде массива, сохраняя порядок URL-ов
- * @param additional дополнительные URL-ы для запроса
- */
-exports["default"] = (function (additional) {
-    console.log('Insight');
-    var list = __spreadArray(['https://raw.githubusercontent.com/dmfilipenko/timezones.json/master/timezones.json',
-        'https://raw.githubusercontent.com/benoitvallon/100-best-books/master/books.json'], additional, true);
-    console.log('list', list);
-    return list.map(function (url) { return load(url); });
-});
